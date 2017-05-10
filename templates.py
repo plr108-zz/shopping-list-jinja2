@@ -18,10 +18,12 @@ class Handler(webapp2.RequestHandler):
     def render(self, template, **kw):
         self.write(self.render_str(template, **kw))
 
+
 class MainPage(Handler):
     def get(self):
         items = self.request.get_all('food')
-        self.render('shopping_list.html', items = items)
+        self.render('shopping_list.html', items=items)
+
 
 app = webapp2.WSGIApplication([('/', MainPage),
                                ],
